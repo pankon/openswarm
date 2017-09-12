@@ -11,8 +11,10 @@
 int main()
 {
     logic::Pos sample(3, 4);
+    logic::Pos sample2(sample);
 
-    std::cout << sample << std::endl;
+
+    std::cout << sample << ", " << sample2 << std::endl;
 
     return 0;
 }

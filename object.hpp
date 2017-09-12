@@ -20,7 +20,10 @@ public:
     explicit Object(unsigned long x, unsigned long y);
     explicit Object(unsigned long x, unsigned long y,
                     unsigned long d_x, unsigned long d_y);
+    explicit Object(const Object &object);
+    Object& operator=(const Object &object);
     virtual ~Object();
+
     void GetDPos(unsigned long *, unsigned long *) const;
     void GetPos(unsigned long *, unsigned long *) const;
     void SetDPos(unsigned long d_x, unsigned long d_y);

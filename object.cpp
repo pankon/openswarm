@@ -28,6 +28,34 @@ Object::Object(unsigned long x, unsigned long y,
     m_d_pos = new Pos(d_x, d_y);
 }
 
+Object::Object(const Object &object)
+{
+    unsigned long x = 0;
+    unsigned long y = 0;
+    unsigned long d_x = 0;
+    unsigned long d_y = 0;
+
+    object.GetDPos(&d_x, &d_y);
+    object.GetPos(&x, &y);
+
+    m_d_pos = new Pos(d_x, d_y);
+    m_pos = new Pos(x, y);
+}
+
+Object& Object::operator=(const Object &object)
+{
+    unsigned long x = 0;
+    unsigned long y = 0;
+    unsigned long d_x = 0;
+    unsigned long d_y = 0;
+
+    object.GetDPos(&d_x, &d_y);
+    object.GetPos(&x, &y);
+
+    SetDPos(d_x, d_y);
+    SetPos(x, y);
+}
+
 void Object::GetDPos(unsigned long *d_x, unsigned long *d_y) const
 {
     *d_x = m_d_pos->getX();

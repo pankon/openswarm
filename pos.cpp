@@ -13,7 +13,6 @@ namespace logic {
 Pos::Pos() : m_x(0), m_y(0)
 {
     // TODO Auto-generated constructor stub
-
 }
 
 Pos::Pos(unsigned long x, unsigned long y) : m_x(x), m_y(y)
@@ -26,6 +25,15 @@ Pos::~Pos()
     // TODO Auto-generated destructor stub
 }
 
+Pos::Pos(const Pos &pos) : m_x(pos.getX()), m_y(pos.getY())
+{
+}
+
+Pos& Pos::operator=(const Pos &pos)
+{
+    m_x = pos.getX();
+    m_y = pos.getY();
+}
 unsigned long Pos::getX() const
 {
     return m_x;
@@ -48,7 +56,7 @@ void Pos::setY(unsigned long y)
 
 std::ostream& operator<<(std::ostream& os_, const logic::Pos& pos_)
 {
-    os_ << "<x = " << pos_.getX() << ", y = " << pos_.getY() << ">";
+    os_ << "(" << pos_.getX() << ", " << pos_.getY() << ")";
 
     return os_;
 }

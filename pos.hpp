@@ -17,7 +17,10 @@ class Pos
 public:
     explicit Pos();
     explicit Pos(unsigned long x, unsigned long y);
+    explicit Pos(const Pos &pos);
+    Pos& operator=(const Pos &pos);
     virtual ~Pos();
+
     unsigned long getX() const;
     void setX(unsigned long x);
     unsigned long getY() const;
