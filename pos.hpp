@@ -2,7 +2,7 @@
  * pos.h
  *
  *  Created on: Sep 12, 2017
- *      Author: super29
+ *      Author: pankon
  */
 
 #ifndef POS_HPP_

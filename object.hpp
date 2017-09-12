@@ -2,7 +2,7 @@
  * object.hpp
  *
  *  Created on: Sep 12, 2017
- *      Author: super29
+ *      Author: pankon
  */
 
 #ifndef OBJECT_HPP_
