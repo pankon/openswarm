@@ -13,19 +13,26 @@
 
 namespace logic {
 
-template <class T>
-class Object : public Pos
+class Object
 {
 public:
     explicit Object();
     explicit Object(unsigned long x, unsigned long y);
+    explicit Object(unsigned long x, unsigned long y,
+                    unsigned long d_x, unsigned long d_y);
     virtual ~Object();
-    T getObj() const;
-    void setObj(T obj);
+    void GetDPos(unsigned long *, unsigned long *) const;
+    void GetPos(unsigned long *, unsigned long *) const;
+    void SetDPos(unsigned long d_x, unsigned long d_y);
+    void SetPos(unsigned long x, unsigned long y);
 
 private:
-    T obj;
+    Pos* m_pos;
+    Pos* m_d_pos;
+    friend std::ostream& operator<<(std::ostream& os_, const Object& object);
 };
+
+
 
 } /* namespace logic */
 
