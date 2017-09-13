@@ -21,10 +21,10 @@ public:
     Pos& operator=(const Pos &pos);
     virtual ~Pos();
 
-    unsigned long getX() const;
-    void setX(unsigned long x);
-    unsigned long getY() const;
-    void setY(unsigned long y);
+    unsigned long get_x() const;
+    void set_x(unsigned long x);
+    unsigned long get_y() const;
+    void set_y(unsigned long y);
     double distance(const Pos &Pos) const;
 
 private:

@@ -15,7 +15,7 @@ Waypts::Waypts()
 
 Waypts::~Waypts()
 {
-    Erase();
+    erase();
 }
 
 bool Waypts::erase()

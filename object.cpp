@@ -35,8 +35,8 @@ Object::Object(const Object &object)
     unsigned long d_x = 0;
     unsigned long d_y = 0;
 
-    object.GetDPos(&d_x, &d_y);
-    object.GetPos(&x, &y);
+    object.get_dpos(&d_x, &d_y);
+    object.get_pos(&x, &y);
 
     m_d_pos = new Pos(d_x, d_y);
     m_pos = new Pos(x, y);
@@ -55,45 +55,45 @@ Object& Object::operator=(const Object &object)
     unsigned long d_x = 0;
     unsigned long d_y = 0;
 
-    object.GetDPos(&d_x, &d_y);
-    object.GetPos(&x, &y);
+    object.get_dpos(&d_x, &d_y);
+    object.get_pos(&x, &y);
 
-    SetDPos(d_x, d_y);
-    SetPos(x, y);
+    set_dpos(d_x, d_y);
+    set_pos(x, y);
 }
 
 void Object::get_dpos(unsigned long *d_x, unsigned long *d_y) const
 {
-    *d_x = m_d_pos->getX();
-    *d_y = m_d_pos->getY();
+    *d_x = m_d_pos->get_x();
+    *d_y = m_d_pos->get_y();
 }
 
 void Object::get_pos(unsigned long *x, unsigned long *y) const
 {
-    *x = m_pos->getX();
-    *y = m_pos->getY();
+    *x = m_pos->get_x();
+    *y = m_pos->get_y();
 }
 
 void Object::set_dpos(unsigned long d_x, unsigned long d_y)
 {
-    m_d_pos->setX(d_x);
-    m_d_pos->setY(d_y);
+    m_d_pos->set_x(d_x);
+    m_d_pos->set_y(d_y);
 }
 
 void Object::set_pos(unsigned long x, unsigned long y)
 {
-    m_pos->setX(x);
-    m_pos->setY(y);
+    m_pos->set_x(x);
+    m_pos->set_y(y);
 }
 
 double Object::distance(const Object& object) const
 {
-    return m_pos->Distance(*object.m_pos);
+    return m_pos->distance(*object.m_pos);
 }
 
 double Object::speed_diff(const Object& object) const
 {
-    return m_d_pos->Distance(*object.m_d_pos);
+    return m_d_pos->distance(*object.m_d_pos);
 }
 
 std::ostream& operator<<(std::ostream& os_, const Object& object)

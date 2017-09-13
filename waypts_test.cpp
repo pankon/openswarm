@@ -15,14 +15,14 @@ int main()
     logic::Pos points[10];
 
     for (unsigned long i = 0; 10 > i; ++i) {
-        points[i].setX(i);
-        waypts.EnqueuePt(points[i]);
+        points[i].set_x(i);
+        waypts.enqueue(points[i]);
     }
 
     std::cout << "{";
-    while(!waypts.Empty())
+    while(!waypts.empty())
     {
-        std::cout << waypts.DequeuePt() << ", ";
+        std::cout << waypts.dequeue() << ", ";
     }
     std::cout << "}" << std::endl;
 

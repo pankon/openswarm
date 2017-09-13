@@ -26,7 +26,7 @@ public:
 
     void get_dpos(unsigned long *, unsigned long *) const;
     void get_pos(unsigned long *, unsigned long *) const;
-    void set_pos(unsigned long d_x, unsigned long d_y);
+    void set_dpos(unsigned long d_x, unsigned long d_y);
     void set_pos(unsigned long x, unsigned long y);
 
     double distance(const Object& object) const;
