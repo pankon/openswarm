@@ -15,23 +15,28 @@ Waypts::Waypts()
 
 Waypts::~Waypts()
 {
+    Erase();
+}
+
+bool Waypts::erase()
+{
     while (!m_waypts.empty())
     {
         m_waypts.pop();
     }
 }
 
-bool Waypts::Empty() const
+bool Waypts::empty() const
 {
     return m_waypts.empty();
 }
 
-bool Waypts::EnqueuePt(const logic::Pos &pos)
+bool Waypts::enqueue(const logic::Pos &pos)
 {
     m_waypts.push(pos);
 }
 
-logic::Pos& Waypts::DequeuePt()
+logic::Pos& Waypts::dequeue()
 {
     logic::Pos &head = m_waypts.front();
     m_waypts.pop();

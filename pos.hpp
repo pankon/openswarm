@@ -25,7 +25,7 @@ public:
     void setX(unsigned long x);
     unsigned long getY() const;
     void setY(unsigned long y);
-    double Distance(const Pos &Pos) const;
+    double distance(const Pos &Pos) const;
 
 private:
     friend std::ostream& operator<<(std::ostream& os_, const Pos& pos_);

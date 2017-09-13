@@ -19,9 +19,10 @@ public:
     explicit Waypts();
     virtual ~Waypts();
 
-    bool EnqueuePt(const logic::Pos &pos);
-    logic::Pos& DequeuePt();
-    bool Empty() const;
+    bool enqueue(const logic::Pos &pos);
+    logic::Pos& dequeue();
+    bool empty() const;
+    bool erase();
 private:
     std::queue<logic::Pos> m_waypts;
 };

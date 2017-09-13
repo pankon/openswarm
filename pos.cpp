@@ -54,7 +54,7 @@ void Pos::setY(unsigned long y)
     this->m_y = y;
 }
 
-double Pos::Distance(const Pos &Pos) const
+double Pos::distance(const Pos &Pos) const
 {
     unsigned long d_x = (m_x - Pos.getX());
     unsigned long d_y = (m_y - Pos.getY());

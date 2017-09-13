@@ -9,16 +9,18 @@
 #define SHIP_HPP_
 
 #include "object.hpp"
+#include "waypts.hpp"
 
 namespace objects {
 
-class Ship: public logic::Object
+class Ship: public logic::Object,
+            public containers::Waypts
 {
 public:
     Ship();
     virtual ~Ship();
 
-    void ShipDisplay() const;
+    void display() const;
 };
 
 } /* namespace objects */

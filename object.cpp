@@ -62,36 +62,36 @@ Object& Object::operator=(const Object &object)
     SetPos(x, y);
 }
 
-void Object::GetDPos(unsigned long *d_x, unsigned long *d_y) const
+void Object::get_dpos(unsigned long *d_x, unsigned long *d_y) const
 {
     *d_x = m_d_pos->getX();
     *d_y = m_d_pos->getY();
 }
 
-void Object::GetPos(unsigned long *x, unsigned long *y) const
+void Object::get_pos(unsigned long *x, unsigned long *y) const
 {
     *x = m_pos->getX();
     *y = m_pos->getY();
 }
 
-void Object::SetDPos(unsigned long d_x, unsigned long d_y)
+void Object::set_dpos(unsigned long d_x, unsigned long d_y)
 {
     m_d_pos->setX(d_x);
     m_d_pos->setY(d_y);
 }
 
-void Object::SetPos(unsigned long x, unsigned long y)
+void Object::set_pos(unsigned long x, unsigned long y)
 {
     m_pos->setX(x);
     m_pos->setY(y);
 }
 
-double Object::Distance(const Object& object) const
+double Object::distance(const Object& object) const
 {
     return m_pos->Distance(*object.m_pos);
 }
 
-double Object::SpeedDiff(const Object& object) const
+double Object::speed_diff(const Object& object) const
 {
     return m_d_pos->Distance(*object.m_d_pos);
 }
