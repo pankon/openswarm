@@ -13,8 +13,7 @@
 
 namespace objects {
 
-class Ship: public logic::Object,
-            public containers::Waypts
+class Ship: public logic::Object, public containers::Waypts
 {
 public:
     Ship();

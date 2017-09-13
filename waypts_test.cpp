@@ -20,8 +20,7 @@ int main()
     }
 
     std::cout << "{";
-    while(!waypts.empty())
-    {
+    while (!waypts.empty()) {
         std::cout << waypts.dequeue() << ", ";
     }
     std::cout << "}" << std::endl;

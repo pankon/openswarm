@@ -12,11 +12,13 @@
 
 namespace logic {
 
-Pos::Pos() : m_x(0), m_y(0)
+Pos::Pos() :
+        m_x(0), m_y(0)
 {
 }
 
-Pos::Pos(unsigned long x, unsigned long y) : m_x(x), m_y(y)
+Pos::Pos(unsigned long x, unsigned long y) :
+        m_x(x), m_y(y)
 {
 }
 
@@ -24,7 +26,8 @@ Pos::~Pos()
 {
 }
 
-Pos::Pos(const Pos &pos) : m_x(pos.get_x()), m_y(pos.get_y())
+Pos::Pos(const Pos &pos) :
+        m_x(pos.get_x()), m_y(pos.get_y())
 {
 }
 
@@ -70,5 +73,4 @@ std::ostream& operator<<(std::ostream& os_, const logic::Pos& pos_)
 }
 
 } /* namespace logic */
-
 

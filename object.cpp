@@ -21,8 +21,8 @@ Object::Object(unsigned long x, unsigned long y)
     m_d_pos = new Pos(0, 0);
 }
 
-Object::Object(unsigned long x, unsigned long y,
-               unsigned long d_x=0, unsigned long d_y=0)
+Object::Object(unsigned long x, unsigned long y, unsigned long d_x = 0,
+        unsigned long d_y = 0)
 {
     m_pos = new Pos(x, y);
     m_d_pos = new Pos(d_x, d_y);

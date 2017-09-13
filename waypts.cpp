@@ -20,8 +20,7 @@ Waypts::~Waypts()
 
 bool Waypts::erase()
 {
-    while (!m_waypts.empty())
-    {
+    while (!m_waypts.empty()) {
         m_waypts.pop();
     }
 }

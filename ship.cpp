@@ -9,7 +9,8 @@
 
 namespace objects {
 
-Ship::Ship() : Object(0, 0, 0, 0)
+Ship::Ship() :
+        Object(0, 0, 0, 0)
 {
     // TODO Auto-generated constructor stub
 }
