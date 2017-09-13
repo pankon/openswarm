@@ -17,6 +17,9 @@ int main()
     logic::Object sample3(sample);
 
     std::cout << sample << ", " << sample2 << ", " << sample3 << std::endl;
+    std::cout << "Distance: " << sample.Distance(sample2) <<
+                ", Speed diff: " << sample.SpeedDiff(sample2) <<
+                std::endl;
 
     return 0;
 }

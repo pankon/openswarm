@@ -29,6 +29,9 @@ public:
     void SetDPos(unsigned long d_x, unsigned long d_y);
     void SetPos(unsigned long x, unsigned long y);
 
+    double Distance(const Object& object) const;
+    double SpeedDiff(const Object& object) const;
+
 private:
     Pos* m_pos;
     Pos* m_d_pos;

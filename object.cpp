@@ -42,6 +42,12 @@ Object::Object(const Object &object)
     m_pos = new Pos(x, y);
 }
 
+Object::~Object()
+{
+    delete m_pos;
+    delete m_d_pos;
+}
+
 Object& Object::operator=(const Object &object)
 {
     unsigned long x = 0;
@@ -80,10 +86,14 @@ void Object::SetPos(unsigned long x, unsigned long y)
     m_pos->setY(y);
 }
 
-Object::~Object()
+double Object::Distance(const Object& object) const
 {
-    delete m_pos;
-    delete m_d_pos;
+    return m_pos->Distance(*object.m_pos);
+}
+
+double Object::SpeedDiff(const Object& object) const
+{
+    return m_d_pos->Distance(*object.m_d_pos);
 }
 
 std::ostream& operator<<(std::ostream& os_, const Object& object)
