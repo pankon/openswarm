@@ -32,6 +32,8 @@ public:
     double distance(const Object& object) const;
     double speed_diff(const Object& object) const;
 
+    void update();
+
 private:
     Pos* m_pos;
     Pos* m_d_pos;

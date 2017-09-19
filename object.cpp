@@ -98,7 +98,11 @@ double Object::speed_diff(const Object& object) const
 
 std::ostream& operator<<(std::ostream& os_, const Object& object)
 {
-    os_ << "<d_pos = " << *object.m_d_pos << ", pos = " << *object.m_pos << ">";
+    os_ << "<";
+    os_ << "pos = " << *object.m_pos;
+    os_ << ", ";
+    os_ << "d_pos = " << *object.m_d_pos;
+    os_ << ">";
 
     return os_;
 }
