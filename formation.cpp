@@ -2,20 +2,22 @@
  * formation.cpp
  *
  *  Created on: Sep 19, 2017
- *      Author: super29
+ *      Author: Nathan Pankowsky
  */
 
-#include "formation.h"
+#include "formation.hpp"
 
 namespace objects {
 
-Formation::Formation() {
-	// TODO Auto-generated constructor stub
-
+Formation::Formation() :
+        Ship()
+{
+    // TODO Auto-generated constructor stub
 }
 
-Formation::~Formation() {
-	// TODO Auto-generated destructor stub
+Formation::~Formation()
+{
+    // TODO Auto-generated destructor stub
 }
 
 } /* namespace objects */

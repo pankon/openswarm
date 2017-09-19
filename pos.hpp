@@ -2,7 +2,7 @@
  * pos.h
  *
  *  Created on: Sep 12, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #ifndef POS_HPP_
@@ -12,8 +12,7 @@
 
 namespace logic {
 
-class Pos
-{
+class Pos {
 public:
     explicit Pos();
     explicit Pos(unsigned long x, unsigned long y);

@@ -2,7 +2,7 @@
  * Object.cpp
  *
  *  Created on: Sep 12, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #include "object.hpp"

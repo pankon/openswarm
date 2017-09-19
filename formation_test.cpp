@@ -2,11 +2,13 @@
  * formation_test.cpp
  *
  *  Created on: Sep 19, 2017
- *      Author: super29
+ *      Author: Nathan Pankowsky
  */
 
-#include "formation.h"
+#include "formation.hpp"
 
-namespace objects {
-
-} /* namespace objects */
+int main()
+{
+    int actual_value = 0;
+    return actual_value;
+}

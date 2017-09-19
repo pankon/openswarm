@@ -2,7 +2,7 @@
  * waypts.h
  *
  *  Created on: Sep 13, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #ifndef WAYPTS_HPP_
@@ -13,8 +13,7 @@
 
 namespace containers {
 
-class Waypts
-{
+class Waypts {
 public:
     explicit Waypts();
     virtual ~Waypts();

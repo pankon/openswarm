@@ -2,7 +2,7 @@
  * pos.cpp
  *
  *  Created on: Sep 12, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #include <iostream> // ostream

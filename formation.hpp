@@ -14,8 +14,8 @@ namespace objects {
 
 class Formation: public Ship {
 public:
-	Formation();
-	virtual ~Formation();
+    Formation();
+    virtual ~Formation();
 };
 
 } /* namespace objects */

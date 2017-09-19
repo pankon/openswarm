@@ -2,7 +2,7 @@
  * ship_test.cpp
  *
  *  Created on: Sep 13, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #include <iostream>

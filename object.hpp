@@ -2,7 +2,7 @@
  * object.hpp
  *
  *  Created on: Sep 12, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #ifndef OBJECT_HPP_
@@ -13,8 +13,7 @@
 
 namespace logic {
 
-class Object
-{
+class Object {
 public:
     explicit Object();
     explicit Object(unsigned long x, unsigned long y);

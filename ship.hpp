@@ -2,7 +2,7 @@
  * ship.h
  *
  *  Created on: Sep 13, 2017
- *      Author: pankon
+ *      Author: Nathan Pankowsky
  */
 
 #ifndef SHIP_HPP_
@@ -15,8 +15,7 @@
 
 namespace objects {
 
-class Ship: public logic::Object, public containers::Waypts
-{
+class Ship: public logic::Object, public containers::Waypts {
 public:
     Ship();
     virtual ~Ship();
@@ -30,7 +29,7 @@ public:
 
 protected:
     const static int m_firing_range;
-	static int m_id;
+    static int m_id;
 
 private:
     int m_health;
