@@ -27,12 +27,12 @@ public:
     void set_target(const logic::Object &obj);
     logic::Object& get_target() const;
 
-    void display() const;
+    void display();
     static void s_display();
 
 protected:
     const static int m_firing_range;
-    static int m_id;
+    static int s_id;
 
 private:
     int m_health;
@@ -43,6 +43,7 @@ private:
 
     static logic::Pos* s_pos;
     static logic::Pos* s_d_pos;
+    static logic::Pos& s_next;
 
     // TODO extract into formation class
     //logic::Pos& formation_center;

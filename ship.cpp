@@ -13,9 +13,11 @@
 namespace objects {
 
 const int Ship::m_firing_range = RANGE;
-int Ship::m_id = 0;
+int Ship::s_id = 0;
+static logic::Pos dummy(0, 0);
 logic::Pos* Ship::s_pos = NULL;
 logic::Pos* Ship::s_d_pos = NULL;
+logic::Pos& Ship::s_next = dummy;
 
 logic::Object temp(0, 0, 0, 0);
 
@@ -23,8 +25,8 @@ Ship::Ship() :
         logic::Object(0, 0, 0, 0), containers::Waypts(), m_firing(false), m_unit_id(
                 0), m_health(100), m_target(temp)
 {
-    ++m_id;
-    m_unit_id = m_id;
+    ++s_id;
+    m_unit_id = s_id;
 
 }
 
@@ -87,46 +89,64 @@ static void DrawCircle(double x, double y, double radius)
     glEnd();
 }
 
-void Ship::s_display(void)
+static void DrawShip(double x, double y, double d_x, double d_y,
+                     double radius,
+                     double body_radius, double prop_radius)
 {
-    double radius = 10;
-    double body_radius = 5;
-    double prop_radius = 3;
     double angles[4] = {
         0, 90, 180, 270//0, 120, 180, 240
     };
     double offset = 0.0;
 
-
     for (int i = 0; 4 > i; ++i) {
         angles[i] *= M_PI / 180;
 
-        if (s_d_pos->get_x() && s_d_pos->get_y()) {
-            offset = atan(s_d_pos->get_y() / s_d_pos->get_x());
+        if (d_x && d_y) {
+            offset = atan(d_y / d_x);
             angles[i] += offset;
 
-            PRINT_INFO("atan, display: " << atan(s_d_pos->get_y() / s_d_pos->get_x()));
+            PRINT_INFO("atan, display: " << offset);
         }
-        else if (s_d_pos->get_y()) {
+        else if (d_y) {
             angles[i] += 90.0 / 180.0 * M_PI;
         }
 
-        DrawCircle(s_pos->get_x() + radius * cos(angles[i]),
-                   s_pos->get_y() + radius * sin(angles[i]), prop_radius);
+        DrawCircle(x + radius * cos(angles[i]),
+                   y + radius * sin(angles[i]), prop_radius);
     }
 
     glBegin(GL_POLYGON);
     for (int i = 0; 4 > i; ++i) {
-        glVertex2f(s_pos->get_x() + body_radius * cos(angles[i]),
-                   s_pos->get_y() + body_radius * sin(angles[i]));
+        glVertex2f(x + body_radius * cos(angles[i]),
+                   y + body_radius * sin(angles[i]));
     }
     glEnd();
 }
 
-void Ship::display() const
+void Ship::s_display(void)
+{
+    double radius = 10;
+    double body_radius = 5;
+    double prop_radius = 3;
+
+
+    glClearColor(1.0, 1.0, 1.0, 0.0);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    DrawShip(s_pos->get_x(), s_pos->get_y(), s_d_pos->get_x(), s_d_pos->get_y(),
+             radius, body_radius, prop_radius);
+    glColor3f(0.5, 0.5, 0.5);
+    DrawShip(s_pos->get_x() + s_d_pos->get_x(), s_pos->get_y() + s_d_pos->get_y(),
+             s_d_pos->get_x(), s_d_pos->get_y(),
+             radius, body_radius, prop_radius);\
+     glColor3f(1.0, 0.0, 0.0);
+     DrawCircle(s_next.get_x(), s_next.get_y(), prop_radius);
+}
+
+void Ship::display()
 {
     s_pos = m_pos;
     s_d_pos = m_d_pos;
+    s_next = peek();
     s_display();
 }
 
