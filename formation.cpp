@@ -12,12 +12,12 @@ namespace objects {
 Formation::Formation() :
         Ship()
 {
-    // TODO Auto-generated constructor stub
+// TODO Auto-generated constructor stub
 }
 
 Formation::~Formation()
 {
-    // TODO Auto-generated destructor stub
+// TODO Auto-generated destructor stub
 }
 
 } /* namespace objects */

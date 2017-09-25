@@ -14,7 +14,7 @@ int main()
     containers::Waypts waypts;
     logic::Pos points[10];
 
-    for (unsigned long i = 0; 10 > i; ++i) {
+    for (long i = 0; 10 > i; ++i) {
         points[i].set_x(i);
         waypts.enqueue(points[i]);
     }

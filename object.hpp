@@ -16,26 +16,28 @@ namespace logic {
 class Object {
 public:
     explicit Object();
-    explicit Object(unsigned long x, unsigned long y);
-    explicit Object(unsigned long x, unsigned long y, unsigned long d_x,
-            unsigned long d_y);
+    explicit Object(long x, long y);
+    explicit Object(long x, long y, long d_x,
+            long d_y);
     explicit Object(const Object &object);
     Object& operator=(const Object &object);
     virtual ~Object();
 
-    void get_dpos(unsigned long *, unsigned long *) const;
-    void get_pos(unsigned long *, unsigned long *) const;
-    void set_dpos(unsigned long d_x, unsigned long d_y);
-    void set_pos(unsigned long x, unsigned long y);
+    void get_dpos(long *, long *) const;
+    void get_pos(long *, long *) const;
+    void set_dpos(long d_x, long d_y);
+    void set_pos(long x, long y);
 
     double distance(const Object& object) const;
     double speed_diff(const Object& object) const;
 
     void update();
 
-private:
+protected:
     Pos* m_pos;
     Pos* m_d_pos;
+
+private:
     friend std::ostream& operator<<(std::ostream& os_, const Object& object);
 };
 
