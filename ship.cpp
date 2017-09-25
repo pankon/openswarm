@@ -5,6 +5,7 @@
  *      Author: Nathan Pankowsky
  */
 #include <cmath>
+#include <stdio.h>
 #include <GL/glut.h>
 
 #include "logger.hpp"
@@ -14,6 +15,7 @@ namespace objects {
 
 const int Ship::m_firing_range = RANGE;
 int Ship::s_id = 0;
+int Ship::s_current_id = 0;
 static logic::Pos dummy(0, 0);
 logic::Pos* Ship::s_pos = NULL;
 logic::Pos* Ship::s_d_pos = NULL;
@@ -123,23 +125,45 @@ static void DrawShip(double x, double y, double d_x, double d_y,
     glEnd();
 }
 
+static void DrawString(double x, double y, char *str)
+{
+    glRasterPos2f(x + 3, y + 3);
+    while('\0' != *str) {
+        glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *str);
+        ++str;
+    }
+}
+
 void Ship::s_display(void)
 {
     double radius = 10;
     double body_radius = 5;
     double prop_radius = 3;
+    char buffer[43] = "";
+    char *current = buffer;
 
-
+    // Ship
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glColor3f(0.0f, 0.0f, 0.0f);
     DrawShip(s_pos->get_x(), s_pos->get_y(), s_d_pos->get_x(), s_d_pos->get_y(),
              radius, body_radius, prop_radius);
+
+    // Shadow
     glColor3f(0.5, 0.5, 0.5);
     DrawShip(s_pos->get_x() + s_d_pos->get_x(), s_pos->get_y() + s_d_pos->get_y(),
              s_d_pos->get_x(), s_d_pos->get_y(),
              radius, body_radius, prop_radius);\
+
+     // Waypoint
      glColor3f(1.0, 0.0, 0.0);
      DrawCircle(s_next.get_x(), s_next.get_y(), prop_radius);
+
+     // Id
+     sprintf(current, "%d", s_current_id);
+     glColor3f(0.0, 0.2, 0.2);
+     DrawString(s_pos->get_x(), s_pos->get_y(), current);
+     DrawString(s_next.get_x(), s_next.get_y(), current);
+
 }
 
 void Ship::display()
@@ -147,6 +171,7 @@ void Ship::display()
     s_pos = m_pos;
     s_d_pos = m_d_pos;
     s_next = peek();
+    s_current_id = m_unit_id;
     s_display();
 }
 

@@ -41,9 +41,11 @@ private:
     bool m_firing;
     logic::Object& m_target;
 
+    // Display objects
     static logic::Pos* s_pos;
     static logic::Pos* s_d_pos;
     static logic::Pos& s_next;
+    static int s_current_id;
 
     // TODO extract into formation class
     //logic::Pos& formation_center;
