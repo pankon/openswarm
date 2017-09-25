@@ -125,6 +125,7 @@ static void DrawShip(double x, double y, double d_x, double d_y,
     glEnd();
 }
 
+#ifndef NO_SHIP_LABEL
 static void DrawString(double x, double y, char *str)
 {
     glRasterPos2f(x + 3, y + 3);
@@ -133,6 +134,7 @@ static void DrawString(double x, double y, char *str)
         ++str;
     }
 }
+#endif
 
 void Ship::s_display(void)
 {
@@ -158,12 +160,13 @@ void Ship::s_display(void)
      glColor3f(1.0, 0.0, 0.0);
      DrawCircle(s_next.get_x(), s_next.get_y(), prop_radius);
 
+#ifndef NO_SHIP_LABEL
      // Id
      sprintf(current, "%d", s_current_id);
      glColor3f(0.0, 0.2, 0.2);
      DrawString(s_pos->get_x(), s_pos->get_y(), current);
      DrawString(s_next.get_x(), s_next.get_y(), current);
-
+#endif
 }
 
 void Ship::display()
