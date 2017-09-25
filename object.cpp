@@ -15,14 +15,14 @@ Object::Object()
     m_d_pos = new Pos(0, 0);
 }
 
-Object::Object(long x, long y)
+Object::Object(double x, double y)
 {
     m_pos = new Pos(x, y);
     m_d_pos = new Pos(0, 0);
 }
 
-Object::Object(long x, long y, long d_x = 0,
-        long d_y = 0)
+Object::Object(double x, double y, double d_x = 0,
+        double d_y = 0)
 {
     m_pos = new Pos(x, y);
     m_d_pos = new Pos(d_x, d_y);
@@ -30,10 +30,10 @@ Object::Object(long x, long y, long d_x = 0,
 
 Object::Object(const Object &object)
 {
-    long x = 0;
-    long y = 0;
-    long d_x = 0;
-    long d_y = 0;
+    double x = 0;
+    double y = 0;
+    double d_x = 0;
+    double d_y = 0;
 
     object.get_dpos(&d_x, &d_y);
     object.get_pos(&x, &y);
@@ -50,10 +50,10 @@ Object::~Object()
 
 Object& Object::operator=(const Object &object)
 {
-    long x = 0;
-    long y = 0;
-    long d_x = 0;
-    long d_y = 0;
+    double x = 0;
+    double y = 0;
+    double d_x = 0;
+    double d_y = 0;
 
     object.get_dpos(&d_x, &d_y);
     object.get_pos(&x, &y);
@@ -62,25 +62,25 @@ Object& Object::operator=(const Object &object)
     set_pos(x, y);
 }
 
-void Object::get_dpos(long *d_x, long *d_y) const
+void Object::get_dpos(double *d_x, double *d_y) const
 {
     *d_x = m_d_pos->get_x();
     *d_y = m_d_pos->get_y();
 }
 
-void Object::get_pos(long *x, long *y) const
+void Object::get_pos(double *x, double *y) const
 {
     *x = m_pos->get_x();
     *y = m_pos->get_y();
 }
 
-void Object::set_dpos(long d_x, long d_y)
+void Object::set_dpos(double d_x, double d_y)
 {
     m_d_pos->set_x(d_x);
     m_d_pos->set_y(d_y);
 }
 
-void Object::set_pos(long x, long y)
+void Object::set_pos(double x, double y)
 {
     m_pos->set_x(x);
     m_pos->set_y(y);

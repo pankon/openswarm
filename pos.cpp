@@ -17,7 +17,7 @@ Pos::Pos() :
 {
 }
 
-Pos::Pos(long x, long y) :
+Pos::Pos(double x, double y) :
         m_x(x), m_y(y)
 {
 }
@@ -37,30 +37,30 @@ Pos& Pos::operator=(const Pos &pos)
     m_y = pos.get_y();
 }
 
-long Pos::get_x() const
+double Pos::get_x() const
 {
     return m_x;
 }
 
-void Pos::set_x(long x)
+void Pos::set_x(double x)
 {
     this->m_x = x;
 }
 
-long Pos::get_y() const
+double Pos::get_y() const
 {
     return m_y;
 }
 
-void Pos::set_y(long y)
+void Pos::set_y(double y)
 {
     this->m_y = y;
 }
 
 double Pos::distance(const Pos &Pos) const
 {
-    long d_x = (m_x - Pos.get_x());
-    long d_y = (m_y - Pos.get_y());
+    double d_x = (m_x - Pos.get_x());
+    double d_y = (m_y - Pos.get_y());
 
     return sqrt((d_x * d_x) + (d_y * d_y));
 }

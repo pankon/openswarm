@@ -9,6 +9,7 @@
 
 #include <GL/glut.h>
 
+#include "logger.hpp"
 #include "pos.hpp"
 #include "ship.hpp"
 
@@ -16,17 +17,17 @@ size_t n = 2;
 objects::Ship *ship;
 
 #define SIZE (1000)
+#define SCALE (1)
 
 void display()
 {
-    gluOrtho2D(0.0, SIZE * 2, 0.0, SIZE * 2);
+    gluOrtho2D(0, SIZE * SCALE, 0, SIZE * SCALE);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    //glPointSize(1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     for (int i = 0; n > i; ++i) {
         ship[i].display();
-        std::cout << "Ship [" << i << "] pos: " << ship[i] << std::endl;
+        PRINT_INFO("Ship [" << i << "] pos: " << ship[i]);
     }
     glFlush();
 }
@@ -53,8 +54,8 @@ int main(int argc, char **argv)
 
     for (int i = 0; n > i; ++i) {
         for (int j = 0; n > j; ++j) {
-            pos[j].set_x(j * 100);
-            pos[j].set_y(j * 100);
+            pos[j].set_x(rand() & SIZE);
+            pos[j].set_y(rand() & SIZE);
             ship[i].enqueue(pos[j]);
         }
         ship[i].set_pos(SIZE / n, i * SIZE / n + SIZE / n);

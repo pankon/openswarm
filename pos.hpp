@@ -15,21 +15,21 @@ namespace logic {
 class Pos {
 public:
     explicit Pos();
-    explicit Pos(long x, long y);
+    explicit Pos(double x, double y);
     explicit Pos(const Pos &pos);
     Pos& operator=(const Pos &pos);
     virtual ~Pos();
 
-    long get_x() const;
-    void set_x(long x);
-    long get_y() const;
-    void set_y(long y);
+    double get_x() const;
+    void set_x(double x);
+    double get_y() const;
+    void set_y(double y);
     double distance(const Pos &Pos) const;
 
 private:
     friend std::ostream& operator<<(std::ostream& os_, const Pos& pos_);
-    long m_x;
-    long m_y;
+    double m_x;
+    double m_y;
 };
 
 } /* namespace logic */

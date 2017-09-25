@@ -20,6 +20,7 @@ public:
 
     bool enqueue(const logic::Pos &pos);
     logic::Pos& dequeue();
+    logic::Pos& peek();
     bool empty() const;
     bool erase();
 private:

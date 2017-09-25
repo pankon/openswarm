@@ -42,4 +42,9 @@ logic::Pos& Waypts::dequeue()
     return head;
 }
 
+logic::Pos& Waypts::peek()
+{
+    return m_waypts.front();
+}
+
 } /* namespace containers */
