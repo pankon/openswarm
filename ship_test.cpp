@@ -15,6 +15,7 @@
 
 size_t n = 2;
 objects::Ship *ship;
+int selected_ship = 0;
 
 #define SIZE (1000)
 #define SCALE (1)
@@ -41,6 +42,24 @@ void time_event(int v)
     glutPostRedisplay();                // schedule calling the display function again
 }
 
+void add_waypoint(int button, int state, int x, int y)
+{
+    logic::Pos pos(x, SIZE - y);
+
+    ship[selected_ship].enqueue(pos);
+    PRINT_ERROR("updated ship: " << ship[selected_ship]);
+}
+
+void select_ship(unsigned char key, int x, int y)
+{
+    if (n > key - '0' - 1) {
+        selected_ship = key - '0' - 1;
+        PRINT_ERROR("selected ship: " << ship[selected_ship]);
+    } else if (key == '0' && n > 9) {
+        selected_ship = 9;
+    }
+}
+
 int main(int argc, char **argv)
 {
 
@@ -53,11 +72,13 @@ int main(int argc, char **argv)
     ship = new objects::Ship[n];
 
     for (int i = 0; n > i; ++i) {
+        /*
         for (int j = 0; n > j; ++j) {
             pos[j].set_x(rand() & SIZE);
             pos[j].set_y(rand() & SIZE);
             ship[i].enqueue(pos[j]);
         }
+        */
         ship[i].set_pos(SIZE / n, i * SIZE / n + SIZE / n);
         ship[i].set_dpos(10, 1);
         ship[i].update();
@@ -68,6 +89,8 @@ int main(int argc, char **argv)
     glutInitWindowSize(SIZE, SIZE);
     glutCreateWindow("Ship Test");
     glutDisplayFunc(display);
+    glutKeyboardFunc(select_ship);
+    glutMouseFunc(add_waypoint);
     glutTimerFunc(200, time_event, 0.5);
 
     glutMainLoop();
